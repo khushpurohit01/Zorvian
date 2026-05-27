@@ -90,8 +90,6 @@ async function generateBlogText(topic) {
     }
 }
 
-    return res.data.choices[0].message.content;
-}
 
 /*image generator*/
 async function generateAIImage(prompt) {
