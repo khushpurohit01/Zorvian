@@ -1,5 +1,5 @@
 
-const API_URL = "https://zorvian.onrender.com";
+const API_URL = "https://ai-blog-website-x7w3.onrender.com/";
 
 
 
