@@ -11,7 +11,7 @@ const app = express();
 
 
 const PORT = process.env.PORT || 3000;
-const BASE_URL = process.env.RENDER_EXTERNAL_URL || "https://zorvian.onrender.com";
+const BASE_URL = process.env.RENDER_EXTERNAL_URL || "https://ai-blog-website-x7w3.onrender.com/";
 
 const HF_API_KEY = "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";
 const PEXELS_API_KEY = "mr8gM7Ws2UuQGMlRFlO8t3L9bHbzYNAE3nMZs4LiZ1mfN2ySdjWi8CTE";
