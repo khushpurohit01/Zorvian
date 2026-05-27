@@ -64,7 +64,7 @@ async function generateBlogText(topic) {
     const res = await axios.post(
         "https://router.huggingface.co/v1/chat/completions",
         {
-            model: "openai/gpt-oss-20b:fireworks-ai",
+            model: "mistralai/Mistral-7B-Instruct-v0.3",
             messages: [
                 {
                     role: "user",
