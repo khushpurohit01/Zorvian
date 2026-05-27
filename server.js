@@ -61,24 +61,34 @@ const seo = (title, content) => ({
 });
 /* text generator*/
 async function generateBlogText(topic) {
-    const res = await axios.post(
-        "https://router.huggingface.co/v1/chat/completions",
-        {
-            model: "mistralai/Mistral-7B-Instruct-v0.3",
-            messages: [
-                {
-                    role: "user",
-                    content: `Write a 900-word detailed human-like SEO blog on "${topic}" with headings and subheadings use less emoji make it human like remove ai feel from it .`
-                }
-            ]
-        },
-        {
-            headers: {
-                Authorization: `Bearer ${HF_API_KEY}`,
-                "Content-Type": "application/json"
+    try {
+        const response = await axios.post(
+            "https://api-inference.huggingface.co/models/google/flan-t5-large",
+            {
+                inputs: `Write a detailed blog about ${topic}`
+            },
+            {
+                headers: {
+                    Authorization: `Bearer ${HF_API_KEY}`,
+                    "Content-Type": "application/json"
+                },
+                timeout: 120000
             }
-        }
-    );
+        );
+
+        console.log(response.data);
+
+        return response.data[0]?.generated_text || "Blog generation failed.";
+
+    } catch (error) {
+        console.error(
+            "HF ERROR:",
+            error.response?.data || error.message
+        );
+
+        throw error;
+    }
+}
 
     return res.data.choices[0].message.content;
 }
