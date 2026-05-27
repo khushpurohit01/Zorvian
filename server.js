@@ -63,7 +63,7 @@ const seo = (title, content) => ({
 async function generateBlogText(topic) {
     try {
         const response = await axios.post(
-            "https://api-inference.huggingface.co/models/google/flan-t5-large",
+            "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.2",
             {
                 inputs: `Write a detailed blog about ${topic}`
             },
