@@ -8,7 +8,7 @@ const path = require("path");
 const marked = require("marked");
 require("dotenv").config()
 const app = express();
-
+console.log("HF KEY:", process.env.HUGGINGFACE_API_KEY);
 
 const PORT = process.env.PORT || 3000;
 const BASE_URL = "https://zorvian.onrender.com";
